@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="388.04 286.277 503.92 147.446" width="503.92" height="147.446" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="clip3">
+      <path d="M733.5 299.5 733.5 421.5 877.5 421.5 877.5 299.5ZM1.90735e-05 1.07288e-05 1280 1.07288e-05 1280 720 1.90735e-05 720Z" fill-rule="evenodd" clip-rule="evenodd"/>
+    </clipPath>
+    <filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="discrete" tableValues="0 0"/>
+        <feFuncG type="discrete" tableValues="0 0"/>
+        <feFuncB type="discrete" tableValues="0 0"/>
+        <feFuncA type="linear" slope="0.301961" intercept="0"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="2.22222 2.22222"/>
+    </filter>
+    <clipPath id="clip4">
+      <rect x="-2" y="-2" width="168" height="146"/>
+    </clipPath>
+    <clipPath id="clip5">
+      <rect x="0" y="0" width="164" height="142"/>
+    </clipPath>
+    <clipPath id="clip6">
+      <path d="M403.5 299.5 403.5 421.5 547.5 421.5 547.5 299.5ZM1.90735e-05 1.07288e-05 1280 1.07288e-05 1280 720 1.90735e-05 720Z" fill-rule="evenodd" clip-rule="evenodd"/>
+    </clipPath>
+    <filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="discrete" tableValues="0 0"/>
+        <feFuncG type="discrete" tableValues="0 0"/>
+        <feFuncB type="discrete" tableValues="0 0"/>
+        <feFuncA type="linear" slope="0.301961" intercept="0"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="2.22222 2.22222"/>
+    </filter>
+    <clipPath id="clip7">
+      <rect x="-2" y="-2" width="168" height="146"/>
+    </clipPath>
+    <clipPath id="clip8">
+      <rect x="0" y="0" width="164" height="142"/>
+    </clipPath>
+    <clipPath id="clip9">
+      <rect x="0" y="0" width="361950" height="371475"/>
+    </clipPath>
+    <clipPath id="clip11">
+      <rect x="0" y="0" width="361950" height="361950"/>
+    </clipPath>
+  </defs>
+  <rect width="503.92" height="147.446" fill="#FFFFFF" y="286.277" style="" x="388.04"/>
+  <g clip-path="url(#clip3)">
+    <g clip-path="url(#clip4)" filter="url(#fx0)" transform="translate(730 295)">
+      <g clip-path="url(#clip5)">
+        <rect x="8.57788" y="8.78421" width="146.88" height="124.44" stroke="#000000" stroke-miterlimit="8" fill="#B1D2A2"/>
+      </g>
+    </g>
+  </g>
+  <rect x="733.5" y="299.5" width="144" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#B1D2A2"/>
+  <g clip-path="url(#clip6)">
+    <g clip-path="url(#clip7)" filter="url(#fx1)" transform="translate(400 295)">
+      <g clip-path="url(#clip8)">
+        <rect x="8.57788" y="8.78421" width="146.88" height="124.44" stroke="#000000" stroke-miterlimit="8" fill="#B0CAE9"/>
+      </g>
+    </g>
+  </g>
+  <rect x="403.5" y="299.5" width="144" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#B0CAE9"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 438.750021, 340.000016)" style="white-space: pre;">Packet <tspan font-size="24" x="-17.3134" y="29">Generator </tspan><tspan font-size="24" x="-4.66669" y="58">(DPDK)</tspan></text>
+  <path d="M0-0.833333 174-0.833333 174 0.833333 0 0.833333ZM172.667-4 186 0 172.667 4Z" transform="matrix(1, 0, 0, -1, 547.000012, 331.000007)"/>
+  <path d="M6.6667-0.833333 186-0.833333 186 0.833333 6.6667 0.833333ZM8 4 0 0 8-4Z" transform="matrix(1, 0, 0, -1, 547.000012, 388.000008)"/>
+  <path d="M760.5 367.833C760.5 363.783 763.783 360.5 767.833 360.5L849.167 360.5C853.217 360.5 856.5 363.783 856.5 367.833L856.5 397.167C856.5 401.217 853.217 404.5 849.167 404.5L767.833 404.5C763.783 404.5 760.5 401.217 760.5 397.167Z" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#ED7D31" fill-rule="evenodd"/>
+  <text font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 776.156043, 390.000019)" style="white-space: pre;">Katran</text>
+  <g clip-path="url(#clip9)" transform="matrix(0.000105, 0, 0, 0.000105, 786.000017, 310.000007)">
+    <g clip-path="url(#clip11)" transform="matrix(1 0 0 1.02632 0 -0.25)">
+      <image width="60" height="60" preserveAspectRatio="none" transform="matrix(6032.5, 0, 0, 6032.5, 0, 0)" xlink:href="data:image/jpeg;base64,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"/>
+    </g>
+  </g>
+  <path d="M-0.12809 6.66798-0.292114 9.82977-0.29172 9.81845-0.35422 13.3185-0.354177 13.3152-0.416677 21.0652-0.420017 21.0154 0.142483 24.9529 0.11731 24.8651 1.80481 28.6776 1.7706 28.6179 4.3331 32.1804 4.29363 32.1348 7.60613 35.3223 7.56291 35.2872 11.5004 37.9747 11.453 37.9477 15.8905 40.0102 15.8399 39.9915 20.5274 41.304 20.4715 41.2934 25.3465 41.7934 25.2954 41.7921 30.1704 41.5421 30.1306 41.5466 34.8181 40.7341 34.7888 40.7405 39.2263 39.553 39.1895 39.5652 43.127 38.0027 43.0858 38.0224 46.3983 36.1474 46.2973 36.2356 47.1582 35.1049 47.6886 35.5087 46.7863 36.6939 43.3942 38.6139 39.4174 40.192 34.9467 41.3884 30.2246 42.2069 25.304 42.4592 20.3751 41.9537 15.6341 40.6262 11.1472 38.5407 7.16401 35.8221 3.80957 32.5942 1.20919 28.9791-0.510965 25.0928-1.08352 21.0849-1.02081 13.3082-0.958179 9.80089-0.793861 6.63344ZM-4.5436 7.70427 0 0 3.43726 8.25744ZM43.4115 34.0097 51.375 29.9375 49.8547 38.7516Z" transform="matrix(0, 1, 1, 0, 826.500018, 331.500007)"/>
+</svg>

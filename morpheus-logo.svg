@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="124.081 147.555 1046.091 417.344" width="1046.091" height="417.344" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient x1="314" y1="316.5" x2="314" y2="438.5" gradientUnits="userSpaceOnUse" spreadMethod="reflect" id="fill2">
+      <stop offset="0" stop-color="#B1CBE9"/>
+      <stop offset="0.0714" stop-color="#B0CAE8"/>
+      <stop offset="0.1429" stop-color="#B0CAE8"/>
+      <stop offset="0.2143" stop-color="#B0CAE8"/>
+      <stop offset="0.2857" stop-color="#AFCAE8"/>
+      <stop offset="0.3571" stop-color="#AEC9E8"/>
+      <stop offset="0.4286" stop-color="#ADC8E7"/>
+      <stop offset="0.5" stop-color="#ACC8E7"/>
+      <stop offset="0.5714" stop-color="#ABC7E7"/>
+      <stop offset="0.6429" stop-color="#AAC6E6"/>
+      <stop offset="0.7143" stop-color="#A9C5E6"/>
+      <stop offset="0.7857" stop-color="#A7C4E5"/>
+      <stop offset="0.8571" stop-color="#A5C3E5"/>
+      <stop offset="0.9286" stop-color="#A3C2E4"/>
+      <stop offset="1" stop-color="#A2C1E4"/>
+    </linearGradient>
+    <clipPath id="clip3">
+      <path d="M1008.5 316.5 1008.5 438.5 1152.5 438.5 1152.5 316.5ZM1.90735e-05 1.07288e-05 1280 1.07288e-05 1280 720 1.90735e-05 720Z" fill-rule="evenodd" clip-rule="evenodd"/>
+    </clipPath>
+    <filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="discrete" tableValues="0 0"/>
+        <feFuncG type="discrete" tableValues="0 0"/>
+        <feFuncB type="discrete" tableValues="0 0"/>
+        <feFuncA type="linear" slope="0.301961" intercept="0"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="2.22222 2.22222"/>
+    </filter>
+    <clipPath id="clip4">
+      <rect x="-2" y="-2" width="168" height="146"/>
+    </clipPath>
+    <clipPath id="clip5">
+      <rect x="0" y="0" width="164" height="142"/>
+    </clipPath>
+    <clipPath id="clip6">
+      <rect x="0" y="0" width="361950" height="361950"/>
+    </clipPath>
+    <clipPath id="clip8">
+      <rect x="0" y="0" width="361950" height="361950"/>
+    </clipPath>
+  </defs>
+  <rect width="1046.091" height="417.344" fill="#FFFFFF" style="" y="147.555" x="124.081"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 137.688003, 337.000003)" style="white-space: pre;">Source <tspan font-size="24" x="0" y="29">Code</tspan></text>
+  <rect x="244.5" y="316.5" width="139" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="url(#fill2)"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 266.136996, 371.000011)" style="white-space: pre;">Software <tspan font-size="24" x="-11.9867" y="29">Data Plane</tspan></text>
+  <path d="M0-0.833333 104-0.833333 104 0.833333 0 0.833333ZM102.667-4 116 0 102.667 4Z" transform="matrix(1, 0, 0, -1, 128.000003, 377.000008)"/>
+  <path d="M383 376.167 427 376.167 427 377.833 383 377.833ZM425.667 373 439 377 425.667 381Z"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 398.588988, 355.000017)" style="white-space: pre;">IR</text>
+  <g clip-path="url(#clip3)">
+    <g clip-path="url(#clip4)" filter="url(#fx0)" transform="translate(1005 312)">
+      <g clip-path="url(#clip5)">
+        <rect x="8.57788" y="8.78421" width="146.88" height="124.44" stroke="#000000" stroke-miterlimit="8" fill="#B1D2A2"/>
+      </g>
+    </g>
+  </g>
+  <rect x="1008.5" y="316.5" width="144" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#B1D2A2"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 1056.25005, 357.000003)" style="white-space: pre;">New <tspan font-size="24" x="-37.9467" y="29">(</tspan><tspan font-size="24" x="-29.9601" y="29">Optimized</tspan>)<tspan font-size="24" x="-35.2867" y="58">Data </tspan><tspan font-size="24" x="21.98" y="58">Plane</tspan></text>
+  <rect x="439.5" y="193.5" width="406" height="367" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#F2F2F2"/>
+  <path d="M642.833 295.964 643.311 306.975 641.646 307.048 641.167 296.036ZM646.417 305.505 643 319 638.425 305.853Z"/>
+  <rect x="465.5" y="210.5" width="353" height="86" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#FFD57F"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 596.923992, 239.000001)" style="white-space: pre;">Analysis<tspan font-style="italic" font-size="19" x="-85.9934" y="24">(identify configuration variables, </tspan><tspan font-style="italic" font-size="19" x="-17.1801" y="46">MAT functions)</tspan></text>
+  <rect x="465.5" y="319.5" width="353" height="86" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#F6AD8E"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 558.967007, 347.999996)" style="white-space: pre;">Instrumentation<tspan font-style="italic" font-size="19" x="-12.34" y="24">(extract traffic patterns, </tspan><tspan font-style="italic" font-size="19" x="18.5933" y="46">recurrent flows)</tspan></text>
+  <rect x="465.5" y="428.5" width="353" height="86" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#FFFFCC"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 574.947062, 457.000008)" style="white-space: pre;">Optimization<tspan font-style="italic" font-size="19" x="-29.4266" y="24">(dead code elimination, </tspan><tspan font-style="italic" font-size="19" x="-66.1067" y="46">data structure specialization, …)</tspan></text>
+  <path d="M0.832547-0.0361977 1.3113 10.9751-0.353793 11.0475-0.832547 0.0361977ZM4.41706 9.5055 1 23-3.57539 9.853Z" transform="matrix(-1, 0, 0, 1, 642.000014, 405.000009)"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 955.499991, 187.000012)" style="white-space: pre;">Feedback <tspan font-size="24" x="25.9733" y="29">Loop</tspan><tspan font-size="24" x="-347.97" y="358">Morpheus</tspan></text>
+  <g clip-path="url(#clip6)" transform="matrix(0.000105, 0, 0, 0.000105, 559.000012, 518.000011)">
+    <g clip-path="url(#clip8)">
+      <image width="60" height="60" preserveAspectRatio="none" transform="matrix(6032.5, 0, 0, 6032.5, 0, 0)" xlink:href="data:image/jpeg;base64,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"/>
+    </g>
+  </g>
+  <path d="M0-0.833333 162.632-0.833333 162.632 767.643 6.80507 767.643 6.80507 765.976 161.799 765.976 160.965 766.809 160.965 0 161.799 0.833333 0 0.833333ZM8.13837 770.809 0.138373 766.809 8.13837 762.809Z" transform="matrix(0, -1, -1, 0, 1079.810081, 316.138007)"/>
+  <path d="M845.001 376 1001.72 376.133 1001.72 378.133 844.999 378ZM1000.39 373.132 1008.39 377.138 1000.39 381.132Z"/>
+</svg>

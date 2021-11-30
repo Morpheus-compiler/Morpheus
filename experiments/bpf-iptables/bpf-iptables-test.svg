@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="390.276 286.277 499.448 144.091" width="499.448" height="144.091" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="clip3">
+      <path d="M733.5 299.5 733.5 421.5 877.5 421.5 877.5 299.5ZM1.90735e-05 1.07288e-05 1280 1.07288e-05 1280 720 1.90735e-05 720Z" fill-rule="evenodd" clip-rule="evenodd"/>
+    </clipPath>
+    <filter id="fx0" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="discrete" tableValues="0 0"/>
+        <feFuncG type="discrete" tableValues="0 0"/>
+        <feFuncB type="discrete" tableValues="0 0"/>
+        <feFuncA type="linear" slope="0.301961" intercept="0"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="2.22222 2.22222"/>
+    </filter>
+    <clipPath id="clip4">
+      <rect x="-2" y="-2" width="168" height="146"/>
+    </clipPath>
+    <clipPath id="clip5">
+      <rect x="0" y="0" width="164" height="142"/>
+    </clipPath>
+    <clipPath id="clip6">
+      <path d="M403.5 299.5 403.5 421.5 547.5 421.5 547.5 299.5ZM1.90735e-05 1.07288e-05 1280 1.07288e-05 1280 720 1.90735e-05 720Z" fill-rule="evenodd" clip-rule="evenodd"/>
+    </clipPath>
+    <filter id="fx1" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer color-interpolation-filters="sRGB">
+        <feFuncR type="discrete" tableValues="0 0"/>
+        <feFuncG type="discrete" tableValues="0 0"/>
+        <feFuncB type="discrete" tableValues="0 0"/>
+        <feFuncA type="linear" slope="0.301961" intercept="0"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="2.22222 2.22222"/>
+    </filter>
+    <clipPath id="clip7">
+      <rect x="-2" y="-2" width="168" height="146"/>
+    </clipPath>
+    <clipPath id="clip8">
+      <rect x="0" y="0" width="164" height="142"/>
+    </clipPath>
+    <clipPath id="clip9">
+      <rect x="0" y="0" width="371475" height="371475"/>
+    </clipPath>
+    <clipPath id="clip11">
+      <rect x="0" y="0" width="371475" height="371475"/>
+    </clipPath>
+  </defs>
+  <rect y="286.277" width="499.448" height="144.091" fill="#FFFFFF" style="" x="390.276"/>
+  <g clip-path="url(#clip3)">
+    <g clip-path="url(#clip4)" filter="url(#fx0)" transform="translate(730 295)">
+      <g clip-path="url(#clip5)">
+        <rect x="8.57788" y="8.78421" width="146.88" height="124.44" stroke="#000000" stroke-miterlimit="8" fill="#B1D2A2"/>
+      </g>
+    </g>
+  </g>
+  <rect x="733.5" y="299.5" width="144" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#B1D2A2"/>
+  <g clip-path="url(#clip6)">
+    <g clip-path="url(#clip7)" filter="url(#fx1)" transform="translate(400 295)">
+      <g clip-path="url(#clip8)">
+        <rect x="8.57788" y="8.78421" width="146.88" height="124.44" stroke="#000000" stroke-miterlimit="8" fill="#B0CAE9"/>
+      </g>
+    </g>
+  </g>
+  <rect x="403.5" y="299.5" width="144" height="122" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#B0CAE9"/>
+  <text font-family="Arial,Arial_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 438.750021, 340.000016)" style="white-space: pre;">Packet <tspan font-size="24" x="-17.3134" y="29">Generator </tspan><tspan font-size="24" x="-4.66669" y="58">(DPDK)</tspan></text>
+  <path d="M0-0.833333 174-0.833333 174 0.833333 0 0.833333ZM172.667-4 186 0 172.667 4Z" transform="matrix(1, 0, 0, -1, 547.000012, 331.000007)"/>
+  <path d="M6.6667-0.833333 186-0.833333 186 0.833333 6.6667 0.833333ZM8 4 0 0 8-4Z" transform="matrix(1, 0, 0, -1, 547.000012, 388.000008)"/>
+  <path d="M754.5 362.667C754.5 357.052 759.052 352.5 764.667 352.5L849.333 352.5C854.948 352.5 859.5 357.052 859.5 362.667L859.5 403.333C859.5 408.948 854.948 413.5 849.333 413.5L764.667 413.5C759.052 413.5 754.5 408.948 754.5 403.333Z" stroke="#000000" stroke-width="1.33333" stroke-miterlimit="8" fill="#ED7D31" fill-rule="evenodd"/>
+  <text font-family="Calibri,Calibri_MSFontService,sans-serif" font-weight="400" font-size="24" transform="matrix(1, 0, 0, 1, 790.051985, 376.000011)" style="white-space: pre;">Bpf<tspan font-size="24" x="-21.9867" y="29">iptables</tspan></text>
+  <g clip-path="url(#clip9)" transform="matrix(0.000105, 0, 0, 0.000105, 787.000017, 306.000006)">
+    <g clip-path="url(#clip11)">
+      <image width="60" height="60" preserveAspectRatio="none" transform="matrix(6191.25, 0, 0, 6191.25, 0, 0)" xlink:href="data:image/jpeg;base64,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"/>
+    </g>
+  </g>
+  <path d="M833.174 326.643 835.297 326.794 843.779 328.616 851.757 331.443 858.924 335.09 864.961 339.429 867.49 341.768 869.641 344.235 871.353 346.835 872.623 349.439 873.454 352.122 873.709 354.869 873.394 360.226 872.513 365.387 871.127 370.174 869.299 374.525 867.135 378.216 865.157 379.927 864.721 379.423 866.657 377.748 866.588 377.831 868.713 374.206 868.693 374.246 870.505 369.933 870.492 369.97 871.867 365.22 871.859 365.256 872.734 360.131 872.73 360.168 873.042 354.855 873.043 354.906 872.793 352.218 872.807 352.286 871.994 349.661 872.013 349.709 870.763 347.146 870.784 347.183 869.097 344.621 869.124 344.657 866.999 342.219 867.024 342.245 864.524 339.932 864.556 339.958 858.556 335.646 858.599 335.672 851.474 332.047 851.514 332.064 843.576 329.252 843.618 329.263 835.18 327.451 835.226 327.458 833.126 327.308ZM834.195 331.06 826.5 326.5 834.765 323.08ZM868.21 382.336 859.313 383.25 863.92 375.584Z"/>
+</svg>

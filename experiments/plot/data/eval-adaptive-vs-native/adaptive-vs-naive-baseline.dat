@@ -1,0 +1,5 @@
+#dataplane,baseline,naive,adaptive,opt-naive,opt-adaptive (throughput Mpps)
+0,"switch",2.95,2.95
+1,"router",2.74,2.74
+2,"katran",4.09,4.09
+3,"bpf-iptables",1.20,1.20

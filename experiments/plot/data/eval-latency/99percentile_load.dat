@@ -1,0 +1,5 @@
+#dataplane,baseline,morpheus-opt,morpheus-non-opt (latency ms)
+switch,186.8,145.9,159.3
+router,147.3,36.8,128.1
+katran,153.1,81.0,94.6
+bpf-iptables,398.9,287.1,315.0

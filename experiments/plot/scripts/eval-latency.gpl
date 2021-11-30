@@ -1,0 +1,64 @@
+working_directory = system("dirname $(readlink -f ".ARG0.")")
+
+set terminal postscript eps color solid enhanced font ',22' size 5,2.4
+set encoding utf8
+set output working_directory."/../figures/eval-latency.eps"
+
+set grid 
+
+set style data histogram
+set style histogram gap 1
+set style fill pattern border -1 #solid border -1
+set boxwidth 0.9
+
+unset xtics
+set xtics ("Switch" 0, "Router" 1, "Katran" 2, "BPF-iptables" 3) rotate by 30 right font ',18' offset 0,0.3
+set xrange [-0.6:3.6]
+set ylabel "P_{99} Latency ({/Symbol m}s)" font "Helvetica,22" offset 1.0,0
+set xlabel offset 0,1
+set yrange [0:]
+set ytics nomirror
+
+set datafile separator ","
+
+#####################################
+## Define colors used in the graph ##
+#####################################
+O0_COLOR = "#542437"                     #006400
+O1_COLOR = "#53777a"                     #FFFF00
+O2_COLOR = "#ffff00"                     #FFA500
+O3_COLOR = "#ff6361"                     #FF0000
+BOLT_COLOR = "#fa6900"                   #FF5145
+AUTOFDO_COLOR = "#a7dbd8"                #FF9541
+BOLT_AUTOFDO_COLOR = "#83af9b"           #FF4611
+CACHED_COMP_COLOR = "#009900"
+RUNTIME_CONF_COLOR = "#cc0000"    #ec7176"
+MAT_SPECIALIZATION_COLOR = "#0000ff"       #f4ab33"     #FD1741
+BLACK = "black"
+OPTIMIZATION_COLOR = "#ff0000"
+
+unset key
+
+set multiplot layout 1,2 margins 0.1, 0.92, 0.19, 0.92 spacing 0.0 
+
+set title "No load" font "Helvetica,24" offset 0,-0.75
+
+plot \
+	working_directory.'/../data/eval-latency/99percentile_no-load.dat'	using 2 axes x1y1 ti "Baseline" linecolor rgb "gray80" fs pattern 6, \
+	''				                                                    using 3 axes x1y1 ti "Morph. (best)" linecolor rgb CACHED_COMP_COLOR fs pattern 10, \
+	''	                                                    			using 4 axes x1y1 ti "Morph. (worst)" linecolor rgb RUNTIME_CONF_COLOR fs pattern 9
+
+unset ylabel
+unset ytics
+set grid x y2
+set title "Under load" font "Helvetica,24"
+set y2tics nomirror
+set y2range [0:400]
+
+set key top inside vertical left Left reverse font "Helvetica,22"
+set key samplen 2.2
+
+plot \
+    working_directory.'/../data/eval-latency/99percentile_load.dat'   	using 2 axes x1y2 ti "Baseline" linecolor rgb "gray80" fs pattern 6, \
+    ''                  			                                    using 3 axes x1y2 ti "Morph. (best)" linecolor rgb CACHED_COMP_COLOR fs pattern 10, \
+    ''  						                                    	using 4 axes x1y2 ti "Morph. (worst)" linecolor rgb RUNTIME_CONF_COLOR fs pattern 9

@@ -1,0 +1,5 @@
+#dataplane,baseline,morpheus (throughput Mpps)
+switch,2.89,4.43
+router,2.70,5.25
+katran,4.09,5.14
+bpf-iptables,1.29,1.78
