@@ -1,0 +1,5 @@
+#dataplane,cycles,instructions,cache misses,branches,llc-load-misses
+switch,10,31,1,38,0
+router,7,15,0,13,0
+katran,3,15,19,26,12
+bpf-iptables,17,13,0,25,0

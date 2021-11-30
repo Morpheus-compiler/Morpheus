@@ -1,0 +1,59 @@
+working_directory = system("dirname $(readlink -f ".ARG0.")")
+
+set terminal postscript eps color solid enhanced font ',22' size 5,2.5
+set encoding utf8
+set output working_directory."/../figures/perf-loc.eps"
+
+set key at screen 0.85,screen 0.98 maxrows 3 width -2
+set grid 
+
+set style data histogram
+set style histogram gap 1
+set style fill pattern border -1 #solid border -1
+set boxwidth 0.9
+
+unset xtics
+set xtics ("Switch" 0, "Router" 1, "Katran" 2, "BPF-iptables" 3) font 'Helvetica,22' offset 0,0.3
+set ylabel "% Decrease" font "Helvetica,22" offset 1,0
+set xlabel offset 0,1
+set ylabel offset 2,0
+set yrange [0:100]
+
+set datafile separator ","
+
+#####################################
+## Define colors used in the graph ##
+#####################################
+O0_COLOR = "#542437"                     #006400
+O1_COLOR = "#53777a"                     #FFFF00
+O2_COLOR = "#ffff00"                     #FFA500
+O3_COLOR = "#ff6361"                     #FF0000
+BOLT_COLOR = "#fa6900"                   #FF5145
+AUTOFDO_COLOR = "#a7dbd8"                #FF9541
+BOLT_AUTOFDO_COLOR = "#83af9b"           #FF4611
+CACHED_COMP_COLOR = "#009900"
+RUNTIME_CONF_COLOR = "#cc0000"    #ec7176"
+MAT_SPECIALIZATION_COLOR = "#0000ff"       #f4ab33"     #FD1741
+BLACK = "black"
+OPTIMIZATION_COLOR = "#ff0000"
+
+set multiplot layout 2,1 margins 0.1, 0.95, 0.1, 0.85 spacing 0.08
+
+set title "Best case" font 'Helvetica,22' offset -19.3,-2.1
+
+plot working_directory.'/../data/eval-perf/high_loc.dat'	using 2 ti "Cycles" linecolor rgb "gray80" fs pattern 6, \
+	 ''							                            using 3 ti "Instructions" linecolor rgb RUNTIME_CONF_COLOR fs pattern 9, \
+	 ''                         							using 5 ti "Branches" linecolor rgb MAT_SPECIALIZATION_COLOR fs pattern 5, \
+	 ''						                            	using 6 ti "LLC load misses" linecolor rgb CACHED_COMP_COLOR fs pattern 10
+
+set title "Worst case" font 'Helvetica,22' offset -18.7,-2.1
+set yrange [0:50]
+set ytics 10
+set ylabel offset 1,0
+unset key
+
+plot working_directory.'/../data/eval-perf/no_loc.dat'	using 2 ti "Cycles" linecolor rgb "gray80" fs pattern 6, \
+	 ''					                            	using 3 ti "Instructions" linecolor rgb RUNTIME_CONF_COLOR fs pattern 9, \
+	 ''					                            	using 5 ti "Branches" linecolor rgb MAT_SPECIALIZATION_COLOR fs pattern 5, \
+	 ''					                               	using 6 ti "LLC load misses" linecolor rgb CACHED_COMP_COLOR fs pattern 10
+

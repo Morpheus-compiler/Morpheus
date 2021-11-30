@@ -1,0 +1,55 @@
+working_directory = system("dirname $(readlink -f ".ARG0.")")
+
+set terminal postscript eps color solid enhanced font ',22' size 5,2.1
+set encoding utf8
+set output working_directory."/../figures/eval-adaptive-vs-naive-instr.eps"
+
+set key top outside horizontal center Left reverse font "Helvetica,22" maxrows 2 width -15
+set key at screen 0.44,screen 0.93 center center
+set key samplen 2.7
+set grid 
+
+set style data histogram
+set style histogram #gap 1
+set style fill pattern border -1 #solid border -1
+set boxwidth 0.9
+
+set xtics ("Switch" 0, "Router" 1, "Katran" 2, "BPF-iptables" 3) font ',22' offset 0,0.3
+set ylabel "Throughput (Mpps)" font "Helvetica,22" offset 1,0
+set xlabel offset 0,1
+set yrange [0:]
+set ytics 1
+
+set datafile separator ","
+
+#####################################
+## Define colors used in the graph ##
+#####################################
+O0_COLOR = "#542437"                     #006400
+O1_COLOR = "#53777a"                     #FFFF00
+O2_COLOR = "#ffff00"                     #FFA500
+O3_COLOR = "#ff6361"                     #FF0000
+BOLT_COLOR = "#fa6900"                   #FF5145
+AUTOFDO_COLOR = "#a7dbd8"                #FF9541
+BOLT_AUTOFDO_COLOR = "#83af9b"           #FF4611
+CACHED_COMP_COLOR = "#009900"
+RUNTIME_CONF_COLOR = "#cc0000"    #ec7176"
+MAT_SPECIALIZATION_COLOR = "#0000ff"       #f4ab33"     #FD1741
+BLACK = "black"
+OPTIMIZATION_COLOR = "#ff0000"
+
+num_of_categories=3
+set boxwidth 0.5/num_of_categories
+dx=0.5/num_of_categories
+offset=-0.1
+
+set offset 0.4,0.4,0,0
+set tmargin 2.5
+
+plot working_directory.'/../data/eval-adaptive-vs-native/adaptive-vs-naive-baseline.dat' using ($1+offset):($4-$3) notitle linecolor rgb CACHED_COMP_COLOR fs pattern 10 with boxes, \
+     ''                   using ($1+offset):3 title "Baseline" lc rgb "gray80" fs pattern 6 with boxes, \
+     ''			      using ($1+offset):($4-$4) title "Optimized" linecolor rgb CACHED_COMP_COLOR fs pattern 10 with boxes, \
+     working_directory.'/../data/eval-adaptive-vs-native/adaptive-vs-naive-naive.dat' using ($1+offset+dx):($4) notitle linecolor rgb CACHED_COMP_COLOR fs pattern 10 with boxes, \
+     ''                   using ($1+offset+dx):3 title "Naive instrumentation" lc rgb MAT_SPECIALIZATION_COLOR fs pattern 5 with boxes, \
+     working_directory.'/../data/eval-adaptive-vs-native/adaptive-vs-naive-adaptive.dat' using ($1+offset+dx+dx):($4) notitle linecolor rgb CACHED_COMP_COLOR fs pattern 10 with boxes, \
+     ''                   using ($1+offset+dx+dx):3 title "Adaptive instrumentation" lc rgb RUNTIME_CONF_COLOR fs pattern 9 with boxes
