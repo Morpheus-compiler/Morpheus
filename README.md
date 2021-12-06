@@ -15,7 +15,7 @@ It introduces a number of new techniques, from static code analysis to adaptive 
 
 The Morpheus core exploits the **LLVM compiler** toolchain (v10.0.1) for code manipulation and run-time code generation. It works at the *intermediate representation* (IR) level as it allows to reason about the running code using a relatively high-level language framework without compromising on code generation time.
 
-The Morpheus compilation pipeline is characterized of three main steps:
+The Morpheus compilation pipeline comprises three main steps:
 1. **Code Analysis**: In the first pass, Morpheus uses ***static code analysis*** to identify all map access sites in
 the code, understand whether a particular access is a read or a write operation, and reason about the way the result is
 used later in the code. In particular, signature-based call site analysis is used to track map lookup and update calls, and then a combination of ***memory dependency analysis*** and ***alias analysis*** is performed to match map lookups to map updates.
