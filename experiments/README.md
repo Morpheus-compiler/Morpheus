@@ -47,16 +47,18 @@ $ ./setup_pktgen.sh
 ### PCAP Trace Generation
 Most of the experiments in our paper have been performed using either [*CAIDA*](https://www.caida.org/catalog/datasets/passive_dataset_download/) traces and *synthetic* traces with different traffic locality, generated using [ClassBench](https://www.arl.wustl.edu/classbench/).
 
-To simplify the reproducibility of our experiments, we also provide such traces under the [GIT Large File Storage service](https://git-lfs.github.com/).
+To simplify the reproducibility of our experiments, we also provide such traces.
 <!---
 You have two options here. If you trust us, you can download our traces, otherwise we provide a script to generate them automatically (although this would take ~1 hour to generate all the traces.).
 -->
 
 #### Download our traces
-To download our traces just run this command under this folder:
+If you have executed the `setup_pktgen.sh` script correctly, the traces are already downloaded and ready to use.
+If, for some reason, the script did not download the traces correctly, you can run the following script:
 
 ```console
-$ git lfs pull
+$ chmod +x download_pcaps.sh
+$ ./download_pcaps.sh
 ```
 
 <!---
