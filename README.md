@@ -82,8 +82,7 @@ You will notice that, when *Morpheus* is active the throughput will start increa
 
 ## Experiments
 
-In addition to the previously presented experiment, which allows to run the first simple application under Morpheus, we provide under the [`experiments/`](./experiments) folder the experiments presented in the paper.
-The folder contains a [`README.md`](./experiments//README.md) file with all the instructions needed to set up the testbed, generate the trace used for the tests, produce the results and create the final figures.
+In addition to the previously presented experiment, which allows to run the first simple application under Morpheus, we provide [`experiments/`](./experiments) folder that covers all the conducted experiments in the paper. The folder contains a [`README.md`](./experiments//README.md) file with all the instructions needed to set up the testbed, generate the trace used for the tests, produce the results and create the final figures.
 
 **Please note that all the experiments require two servers connected back-to-back with 2 different interface. The first server is used as packet generator (uses DPDK), while the second is used as Device Under Test (DUT) and runs the data plane application together with the *Morheus* compiler/optimizer.**
 
