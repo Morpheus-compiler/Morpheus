@@ -9,21 +9,21 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PCAP_FILE_PATH="${DIR}"/pcap/yozb_rtr_route_high_loc.pcap
 
 function create_veth {
-  for i in `seq 1 $1`;
+  for i in `seq 0 $1`;
   do
   	sudo ip netns add ns${i}
   	sudo ip link add veth${i}_ type veth peer name veth${i}
   	sudo ip link set veth${i}_ netns ns${i}
   	sudo ip netns exec ns${i} ip link set dev veth${i}_ up
   	sudo ip link set dev veth${i} up
-    sudo ip netns exec ns${i} ifconfig veth${i}_ 10.0.${i}.1/24 promisc
-    sudo ip netns exec ns${i} route add default gw 10.0.${i}.254 veth${i}_
+    sudo ip netns exec ns${i} ifconfig veth${i}_ 192.168.${i}.1/24 promisc
+    sudo ip netns exec ns${i} route add default gw 192.168.${i}.254 veth${i}_
     echo -e "${COLOR_GREEN}Namespace ns${i} created.${COLOR_OFF}"
   done
 }
 
 function delete_veth {
-  for i in `seq 1 $1`;
+  for i in `seq 0 $1`;
   do
   	sudo ip link del veth${i} &> /dev/null
   	sudo ip netns del ns${i} &> /dev/null
@@ -31,12 +31,12 @@ function delete_veth {
 }
 
 function ping_cycle {
-  for i in `seq 1 $1`;
+  for i in `seq 0 $1`;
   do
-    for j in `seq 1 $1`;
+    for j in `seq 0 $1`;
     do
       if [ "$i" -ne "$j" ]; then
-        sudo ip netns exec ns$i ping 10.0.$j.1 -c 2 -i 0.5
+        sudo ip netns exec ns$i ping 192.168.$j.1 -c 2 -i 0.5
       fi
     done
   done
@@ -62,14 +62,14 @@ function start_tcpreplay_pcap {
     fi
 
     sudo rm -f nohup.out &> /dev/null
-    sudo nohup ip netns exec ns1 tcpreplay -l 0 -t -K -i veth1_ ${PCAP_FILE_PATH} &
+    sudo nohup ip netns exec ns0 tcpreplay -l 0 -t -K -i veth0_ ${PCAP_FILE_PATH} &
 
     # Write tcpdump's PID to a file
     echo $! > ${DIR}/tcpreplay.pid
 }
 
 function start_throughput_measurement {
-    sudo ip netns exec ns2 ${DIR}/check-speed.sh veth2_ $1
+    sudo ip netns exec ns1 ${DIR}/check-speed.sh veth1_ $1
 }
 
 function cleanup {
@@ -77,7 +77,7 @@ function cleanup {
   stop_tcpreplay_pcap
   sudo killall tcpreplay &> /dev/null
   #sudo killall polycubed &> /dev/null
-  delete_veth 2
+  delete_veth 1
   sudo rm -f nohup.out &> /dev/null
 }
 trap cleanup EXIT
@@ -85,10 +85,10 @@ trap cleanup EXIT
 TYPE="TC"
 
 sudo polycubectl router del r1 &> /dev/null
-delete_veth 2
+delete_veth 1
 
 echo -e "${COLOR_YELLOW}Creating namespaces.${COLOR_OFF}"
-create_veth 2
+create_veth 1
 echo -e "${COLOR_GREEN}Namespaces created.\n${COLOR_OFF}"
 
 set -e
@@ -98,13 +98,13 @@ sudo polycubectl router add r1 type=$TYPE loglevel=off dyn-opt=true
 echo -e "${COLOR_GREEN}Polycube router service created.\n${COLOR_OFF}"
 
 echo -e "${COLOR_YELLOW}Attaching veth ports to router service (r1).${COLOR_OFF}"
-sudo polycubectl r1 ports add to_veth1 ip=10.0.1.254/24 mac=f8:f2:1e:b2:43:00 peer=veth1
-sudo polycubectl r1 ports add to_veth2 ip=10.0.2.254/24 mac=f8:f2:1e:b2:43:01 peer=veth2
+sudo polycubectl r1 ports add to_veth0 ip=192.168.0.254/24 mac=f8:f2:1e:b2:43:00 peer=veth0
+sudo polycubectl r1 ports add to_veth1 ip=192.168.1.254/24 mac=f8:f2:1e:b2:43:01 peer=veth1
 echo -e "${COLOR_GREEN}Veth ports attached.\n${COLOR_OFF}"
 
 # We set up a DROP rule in the FORWARD chain to avoid packets being redirected
 # back in the same interface
-sudo ip netns exec ns2 iptables -P FORWARD DROP
+sudo ip netns exec ns1 iptables -P FORWARD DROP
 
 echo -e "${COLOR_YELLOW}Loading routing table rules to router service (it takes a while).${COLOR_OFF}"
 
@@ -114,7 +114,7 @@ echo -e "${COLOR_GREEN}Routing table rules loaded.\n${COLOR_OFF}"
 
 echo -e "${COLOR_YELLOW}Let's check if everything is setup correctly.${COLOR_OFF}"
 # All the namespaces try to ping each other
-ping_cycle 2
+ping_cycle 1
 echo -e "${COLOR_GREEN}Ping works, let's start the test.\n${COLOR_OFF}"
 
 while true; do
@@ -141,4 +141,6 @@ echo -e "${COLOR_GREEN}Check the throughput, it will start increasing as soon as
 start_throughput_measurement 30
 
 echo -e "${COLOR_GREEN}Test done, let's cleanup the resources.${COLOR_OFF}"
+
+sudo killall polycubed
 exit 0
