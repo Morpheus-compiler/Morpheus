@@ -14,7 +14,6 @@ MOOGEN_COMMIT_SHA=25c61ee76b9ca30b83ecdeef8af2c7f89625cb4e
 
 UBUNTU_SUGGESTED_VERSION=20.04
 
-
 DEPS_DIR=$DIR/deps
 
 function print_system_info {
@@ -232,8 +231,6 @@ if [ -z ${DPDK_SETUP_ONLY+x} ]; then
   download_and_install_dpdk
   download_and_install_burst_replay
   download_and_install_moongen
-
-  ${DIR}/download_pcaps.sh
 fi
 
 echo -e "${COLOR_GREEN}All dependencies installed, let's configure DPDK.${COLOR_OFF}"

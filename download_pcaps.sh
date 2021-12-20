@@ -23,10 +23,12 @@ for service in "${services[@]}"; do
         url_var_name=${service}_PCAP_URL
     fi
     
-    wget ${!url_var_name}
+    if [ ! -f "${service}-pcap.tar.gz" ]; then
+        wget ${!url_var_name}
+    fi
     rm -rf "${DIR}/experiments/${service}/pcap"
     mkdir -p "${DIR}/experiments/${service}/pcap"
     tar -xf ${service}-pcap.tar.gz -C "${DIR}/experiments/${service}/pcap" --strip-components 1
-    rm ${service}-pcap.tar.gz
+    #rm ${service}-pcap.tar.gz
     popd
 done

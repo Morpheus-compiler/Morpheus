@@ -16,6 +16,7 @@ KERNEL_SUGGESTED_MINOR_VERSION=12
 UBUNTU_SUGGESTED_VERSION=20.04
 
 KERNEL_DOWNLOAD_SCRIPT=$DIR/get-verified-tarball.sh
+POLYCUBE_ARCHIVE=polycube.tar.gz
 
 function print_system_info {
   echo -e "${COLOR_GREEN}***********************SYSTEM INFO*************************************"
@@ -165,6 +166,8 @@ then
   sudo DEBIAN_FRONTEND=noninteractive apt install -yq gpgv2
 fi
 
+sudo DEBIAN_FRONTEND=noninteractive apt install -yq net-tools
+
 [ -z ${SUDO+x} ] && SUDO='sudo'
 
 set -e
@@ -177,7 +180,12 @@ check_ubuntu_version
 
 if [ ! -d "${DIR}/polycube" ] 
 then
-    clone_polycube_repo
+    if test -f "$POLYCUBE_ARCHIVE"; then
+      mkdir polycube
+      tar xf $POLYCUBE_ARCHIVE -C polycube --strip-components 1
+    else
+      clone_polycube_repo
+    fi
 fi
 
 install_polycube_morpheus
