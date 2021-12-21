@@ -7,7 +7,7 @@
 # Place here the IP address of the server working as packet generator
 export PKTGEN_SERVER_IP=<IP> 
 
-# Place here the IP address of the server working as packet generator
+# Place here the name of the user in the server working as packet generator
 export PKTGEN_SERVER_USER=<username> 
 
 # Place here the full path to the folder where Morpheus repo is cloned on the Pktgen
@@ -41,7 +41,7 @@ export PKTGEN_MAC_IF2="<mac-if2>"
 # Place here the IP address of the server working as Device Under Test (DUT)
 export DUT_SERVER_IP=<IP> 
 
-# Place here the IP address of the server working as Device Under Test (DUT)
+# Place here the name of the user in the server working as Device Under Test (DUT)
 export DUT_SERVER_USER=<username> 
 
 # Place here the full path to the folder where Morpheus repo is cloned on the DUT

@@ -41,7 +41,7 @@ jobs:
         echo "/usr/local/bin" >> $GITHUB_PATH
     - name: Simple Morpheus run
       run: |
-        sudo timeout --preserve-status -s SIGINT 30 sudo polycubed
+        sudo timeout --preserve-status -s SIGINT 30 sudo /usr/local/bin/polycubed
   test:
     needs: run
     runs-on: ${{ matrix.os }}
@@ -55,7 +55,7 @@ jobs:
     - name: Simple Morpheus test
       run: |
         cd "${GITHUB_WORKSPACE}/experiments/router/simple"
-        tmux new-session -d -s morpheus 'sudo polycubed'
+        tmux new-session -d -s morpheus 'sudo /usr/local/bin/polycubed'
         sleep 30
         chmod +x router-simple-start.sh
         ./router-simple-start.sh -q
