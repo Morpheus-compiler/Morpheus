@@ -1,4 +1,4 @@
-name: Morpheus Build
+name: Morpheus Test
 
 on: 
   push:
@@ -9,7 +9,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  build:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -26,6 +26,11 @@ jobs:
       run: |
         chmod +x "${GITHUB_WORKSPACE}/setup_dut.sh"
         ${GITHUB_WORKSPACE}/setup_dut.sh
-    - name: Run
+    - name: Test
       run: |
-        sudo timeout --preserve-status -s SIGINT 30 sudo polycubed
+        cd "${GITHUB_WORKSPACE}/experiments/router/simple"
+        tmux new-session -d -s morpheus 'sudo polycubed'
+        sleep 30
+        chmod +x router-simple-start.sh
+        ./router-simple-start.sh -q
+        

@@ -93,6 +93,7 @@ function configure_dpdk_hugepages {
 function configure_dpdk_ports {
   DPDK_DIR=${DEPS_DIR}/dpdk
 
+  set +e
   pushd .
   cd "${DPDK_DIR}"/usertools
 
@@ -105,8 +106,37 @@ function configure_dpdk_ports {
   echo -e "${COLOR_YELLOW}If it fails, make sure you have the intel_iommu=on enable on /etc/default/grub.${COLOR_OFF}"
   echo -e "${COLOR_YELLOW}Otherwise, you can manually bind the ports to the igb_uio driver.${COLOR_OFF}"
   $SUDO ./dpdk-devbind.py --bind=vfio-pci ${PCI_DEV_IDS}
+  popd
+  set -e
+}
+
+function configure_dpdk_ports_igb_uio {
+  DPDK_KMOD_DIR=${DEPS_DIR}/dpdk-kmods
+
+  set +e
+  rm -rf "${DPDK_KMOD_DIR}"
+  pushd .
+  cd ${DEPS_DIR}
+  git clone git://dpdk.org/dpdk-kmods
+  cd dpdk-kmods/linux/igb_uio
+  make
+  sudo modprobe igb
+  sudo insmod igb_uio.ko
+  popd
+
+  pushd .
+  cd "${DPDK_DIR}"/usertools
+
+  $SUDO ./dpdk-devbind.py -s
+
+  echo -e "${COLOR_GREEN}Please set the PCI dev id of the ports to configure (separated by space).${COLOR_OFF}"
+
+  read -r -p "PCI DEV IDS: " PCI_DEV_IDS
+
+  $SUDO ./dpdk-devbind.py --bind=igb_uio ${PCI_DEV_IDS}
   
   popd
+  set -e
 }
 
 
@@ -248,9 +278,21 @@ if [ -z ${QUIET+x} ]; then
   echo -e "${COLOR_GREEN}Hugepages created.${COLOR_OFF}"
 
   while true; do
-      read -r -p "Would you like to configure the ports? (y/n) " yn
+      read -r -p "Would you like to configure the ports (using VFIO driver)? (y/n) " yn
       case $yn in
           [Yy]* ) configure_dpdk_ports; break;;
+          [Nn]* ) exit;;
+          * ) echo -e "${COLOR_RED}Please answer yes or no.${COLOR_OFF}";;
+      esac
+  done
+
+  echo -e "${COLOR_GREEN}Ports configured.${COLOR_OFF}"
+
+  while true; do
+      echo -e "${COLOR_RED}Please type yes only if the previous command failed to bind ports to the VFIO driver.${COLOR_OFF}"
+      read -r -p "Would you like to configure the ports (using IGB_UIO driver)? (y/n) " yn
+      case $yn in
+          [Yy]* ) configure_dpdk_ports_igb_uio; break;;
           [Nn]* ) exit;;
           * ) echo -e "${COLOR_RED}Please answer yes or no.${COLOR_OFF}";;
       esac
