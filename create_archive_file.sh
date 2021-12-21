@@ -7,14 +7,12 @@ COLOR_OFF='\033[0m' # No Color
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-POLYCUBE_GIT_REPO_URL=https://github.com/Morpheus-compiler/polycube.git
-MORPHEUS_POLYCUBE_BRANCH=morpheus
-
 pushd .
 cd $DIR
 rm morpheus.tar.gz
 rm -rf polycube
-git clone --branch ${MORPHEUS_POLYCUBE_BRANCH} ${POLYCUBE_GIT_REPO_URL} polycube
+git submodule init
+git submodule update --recursive
 
 pushd .
 cd polycube

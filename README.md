@@ -38,7 +38,7 @@ To install Morpheus, you can use the script `setup_dut.sh` provided in this repo
 It will download all the dependencies and the required files, and it will install the *Polycube* framework with **Morpheus** support.
 
 ```console
-$ git clone git@github.com:Morpheus-compiler/Morpheus.git
+$ git clone https://github.com/Morpheus-compiler/Morpheus.git --recursive # Not needed if you downloaded the archive from Zenodo
 $ chmod +x setup_dut.sh
 $ ./setup_dut.sh
 ```

@@ -1,0 +1,6 @@
+[submodule "polycube"]
+	path = polycube
+	url = https://github.com/Morpheus-compiler/polycube.git
+	ignore = untracked
+	branch = morpheus
+
