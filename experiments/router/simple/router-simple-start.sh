@@ -82,6 +82,26 @@ function cleanup {
 }
 trap cleanup EXIT
 
+function show_help() {
+usage="$(basename "$0") [-q]
+Script to start a simple test of Morpheus with the router service
+
+-q  Do not ask for information on the console"
+echo "$usage"
+echo
+}
+
+while getopts :qh option; do
+ case "${option}" in
+ q)
+  QUIET=1
+  ;;
+ h|\?)
+  show_help
+  exit 0
+ esac
+done
+
 TYPE="TC"
 
 sudo polycubectl router del r1 &> /dev/null
@@ -117,20 +137,24 @@ echo -e "${COLOR_YELLOW}Let's check if everything is setup correctly.${COLOR_OFF
 ping_cycle 1
 echo -e "${COLOR_GREEN}Ping works, let's start the test.\n${COLOR_OFF}"
 
-while true; do
-    read -p "Do you want to start sending the PACP trace? (y/n) " yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo -e "${COLOR_RED}Please answer yes or no.${COLOR_OFF}";;
-    esac
-done
+if [ -z ${QUIET+x} ]; then
+  while true; do
+      read -p "Do you want to start sending the PACP trace? (y/n) " yn
+      case $yn in
+          [Yy]* ) break;;
+          [Nn]* ) exit;;
+          * ) echo -e "${COLOR_RED}Please answer yes or no.${COLOR_OFF}";;
+      esac
+  done
+else
+  sleep 5
+fi
 
 start_tcpreplay_pcap
 sleep 2
 
 echo -e "${COLOR_GREEN}PCAP send is in progress, let's monitor the throughput.\n${COLOR_OFF}"
-start_throughput_measurement 10
+start_throughput_measurement 30
 
 echo -e "${COLOR_YELLOW}We now enable Morpheus.${COLOR_OFF}"
 sudo polycubectl r1 set start-morpheus=true

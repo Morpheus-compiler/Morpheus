@@ -26,4 +26,27 @@ jobs:
       run: |
         chmod +x "${GITHUB_WORKSPACE}/setup_dut.sh"
         ${GITHUB_WORKSPACE}/setup_dut.sh
-      
+  run:
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04, ubuntu-latest]
+    steps:
+    - name: Simple Morpheus run
+      run: |
+        sudo timeout --preserve-status -s SIGINT 30 sudo polycubed
+  test:
+    needs: run
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-18.04, ubuntu-latest]
+    steps:
+    - name: Simple Morpheus test
+      run: |
+        cd "${GITHUB_WORKSPACE}/experiments/router/simple"
+        tmux new-session -d -s morpheus 'sudo polycubed'
+        sleep 30
+        chmod +x router-simple-start.sh
+        ./router-simple-start.sh -q
