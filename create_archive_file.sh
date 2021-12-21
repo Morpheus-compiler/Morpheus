@@ -7,24 +7,25 @@ COLOR_OFF='\033[0m' # No Color
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+if [ -z "$1" ]; then
+    ARCHIVE_NAME=morpheus.tar.gz
+else
+    ARCHIVE_NAME="$1"
+fi
+
 pushd .
 cd $DIR
-rm morpheus.tar.gz
+rm morpheus.tar.gz &> /dev/null
 rm -rf polycube
 git submodule init
 git submodule update --recursive
 
-pushd .
-cd polycube
-git-archive-all --force-submodules polycube.tar.gz
-mv polycube.tar.gz ..
-popd
-
 ./download_pcaps.sh
-git-archive-all --include=polycube.tar.gz --include=experiments/bpf-iptables/bpf-iptables-pcap.tar.gz \
+git-archive-all --force-submodules \
+                --include=experiments/bpf-iptables/bpf-iptables-pcap.tar.gz \
                 --include=experiments/router/router-pcap.tar.gz \
                 --include=experiments/switch/switch-pcap.tar.gz \
                 --include=experiments/katran/katran-pcap.tar.gz \
-                morpheus.tar.gz
+                ${ARCHIVE_NAME}
 
 popd
