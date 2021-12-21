@@ -216,7 +216,7 @@ PACKAGES+=" git-lfs python3 python3-pip python3-setuptools python3-wheel ninja-b
 PACKAGES+=" libnuma-dev libelf-dev libcap-dev libjansson-dev libipsec-mb-dev" # DPDK
 PACKAGES+=" autoconf libcsv-dev" # DPDK burst replay
 PACKAGES+=" pciutils build-essential cmake linux-headers-$(uname -r) libnuma-dev" # Moongen
-PACKAGES+=" tmux texlive-font-utils pdf2svg poppler-utils"
+PACKAGES+=" tmux texlive-font-utils pdf2svg poppler-utils pkg-config net-tools"
 
 $SUDO bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -yq $PACKAGES"
 

@@ -15,6 +15,7 @@ fi
 
 pushd .
 cd $DIR
+rm ${ARCHIVE_NAME} &> /dev/null
 rm morpheus.tar.gz &> /dev/null
 rm -rf polycube
 git submodule init
