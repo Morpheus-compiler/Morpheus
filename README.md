@@ -60,18 +60,13 @@ It uses two namespaces and attaches the Polycube eBPF *router* Network Function 
 
 To run this example, follow these instructions:
 
-```console
-$ cd experiments/router/simple/pcap
-$ git lfs pull   #This pull the PCAP file that we use in our test
-```
-
-Now open a new terminal, and type the following command to start the Polycube daemon:
+1. Now open a new terminal, and type the following command to start the Polycube daemon:
 ```console
 $ sudo polycubed
 ```
 after few seconds, the *Polycube* daemon will start and it will load a set of NFs.
 
-Now go on another terminal, and run the test:
+2. Now go on another terminal, and run the test:
 ```console
 $ cd experiments/router/simple
 $ sudo ./router-simple-start.sh

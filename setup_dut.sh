@@ -178,14 +178,9 @@ cd ${DIR}
 check_kernel_version
 check_ubuntu_version
 
-if [ ! -d "${DIR}/polycube" ] 
-then
-    if test -f "$POLYCUBE_ARCHIVE"; then
-      mkdir polycube
-      tar xf $POLYCUBE_ARCHIVE -C polycube --strip-components 1
-    else
-      clone_polycube_repo
-    fi
+if git rev-parse --git-dir > /dev/null 2>&1; then
+  git submodule init
+  git submodule update --recursive
 fi
 
 install_polycube_morpheus
