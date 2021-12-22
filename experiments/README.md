@@ -26,7 +26,7 @@ We use a modified version of the [`dpdk-burst-replay`](https://github.com/sebymi
 <sub>Testbed setup</sub>
 </p>
 
-### Hardware requirements
+### Hardware & Software requirements
 The testbed needed to run the experiments in this repo requires two servers with two *separate* Ethernet interfaces connected back-to-back, as shown in the Figure above. In particular:
 
 #### **Packet generator server**
