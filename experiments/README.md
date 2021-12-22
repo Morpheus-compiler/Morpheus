@@ -26,6 +26,29 @@ We use a modified version of the [`dpdk-burst-replay`](https://github.com/sebymi
 <sub>Testbed setup</sub>
 </p>
 
+### Hardware requirements
+The testbed needed to run the experiments in this repo requires two servers with two *separate* Ethernet interfaces connected back-to-back, as shown in the Figure above. In particular:
+
+#### **Packet generator server**
+This server runs all the script to start the tests and collect the results from the DUT (via SSH, if configured). The requirements for this server are:
+- DPDK v20.11.3 (or newer)
+- At least 10G of *large* hugepages (1G each) required to send large PCAPs
+- Two *ethernet* interfaces connected back-to-back with the *DUT* and one additional interface to perform the connection (via SSH) with the DUT (in our paper we used one *Intel Intel XL710* 40Gbps dual port NIC).
+
+#### **DUT server**
+In this server, we run the tests. The script executed on the *packet generator* server automatically collects the results and manages the lifecycles of the test via a separate SSH connection with the DUT.
+The requirements for this server are:
+- At least kernel v5.10 (the paper's test have been performed on kernel v5.12)
+- Two *ethernet* interfaces connected back-to-back with the *Packet generator* and one additional interface to perform the connection (via SSH) with the *Packet generator* (in our paper we used one *Intel Intel XL710* 40Gbps dual port NIC).
+- Both interfaces should have the possibility to set hardware rules in the NIC to redirect packets to a single core. The [script](common/setup_flow_director_single_core.sh) that performs this operation prints a warning in case this is not supported, and continue the configuration. You can run the test anyway, but the results will be different from the one presented in the paper.
+You can check if your interface supports this operation with the following command:
+```console
+# sudo ethtool -k <if> | grep "ntuple-filters: on"
+```
+If the command does not produce any output, the operation is not supported.
+- The driver used by the two interface should be compatible with *XDP Native* mode. You can check [here](https://github.com/xdp-project/xdp-project/blob/master/areas/drivers/README.org) the list of supported drivers.
+- The `bpf_jit_enable` flag enabled on the kernel (this should be enabled by default on recent kernel, e.g. v4.18+)
+
 ### Install dependencies
 Before starting, you need to prepare the testbed with all the required software.
 Log in into the server that work as packet generator and execute the following commands.
