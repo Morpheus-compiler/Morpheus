@@ -104,10 +104,7 @@ else
 fi
 
 # Check if sudo without password is enabled on the remote server
-sudo_nopass_enabled=$(ssh ${DUT_SERVER_USER}@${DUT_SERVER_IP} << EOF
-sudo -n true &> /dev/null; echo \$?
-EOF
-)
+sudo_nopass_enabled=$(ssh ${DUT_SERVER_USER}@${DUT_SERVER_IP} sudo -n true &> /dev/null; echo "$?")
 if [ $sudo_nopass_enabled == 0 ]; then
   echo -e "${COLOR_GREEN}[ INFO ] Sudo without password is enabled on remote machine. ${COLOR_OFF}"
 else

@@ -39,15 +39,14 @@ After installing all the dependencies and the software required for the packet g
 If the script fails in this last step, make sure you have `intel_iommu=on` flag enabled on your *GRUB* settings; if not, you can add this *flag* under `GRUB_CMDLINE_LINUX_DEFAULT`; then run `sudo update-grub` and *reboot* your server.
 
 ```console
-$ git clone https://github.com/Morpheus-compiler/Morpheus.git
-$ chmod +x setup_pktgen.sh
+$ git clone https://github.com/Morpheus-compiler/Morpheus.git # Not needed if you downloaded the archive from Zenodo
 $ ./setup_pktgen.sh
 ```
 
 ### PCAP Trace Generation
 Most of the experiments in our paper have been performed using either [*CAIDA*](https://www.caida.org/catalog/datasets/passive_dataset_download/) traces and *synthetic* traces with different traffic locality, generated using [ClassBench](https://www.arl.wustl.edu/classbench/).
 
-To simplify the reproducibility of our experiments, we also provide such traces.
+To simplify the reproducibility of our experiments, we also provide such traces under the [GIT Release of this repo](https://github.com/Morpheus-compiler/Morpheus/releases/tag/v0.1).
 <!---
 You have two options here. If you trust us, you can download our traces, otherwise we provide a script to generate them automatically (although this would take ~1 hour to generate all the traces.).
 -->
@@ -57,7 +56,6 @@ If you have executed the `setup_pktgen.sh` script correctly, the traces are alre
 If, for some reason, the script did not download the traces correctly, you can run the following script:
 
 ```console
-$ chmod +x download_pcaps.sh
 $ ./download_pcaps.sh
 ```
 

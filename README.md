@@ -39,7 +39,6 @@ It will download all the dependencies and the required files, and it will instal
 
 ```console
 $ git clone https://github.com/Morpheus-compiler/Morpheus.git --recursive # Not needed if you downloaded the archive from Zenodo
-$ chmod +x setup_dut.sh
 $ ./setup_dut.sh
 ```
 

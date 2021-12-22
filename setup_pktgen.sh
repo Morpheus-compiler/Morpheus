@@ -120,7 +120,7 @@ function configure_dpdk_ports_igb_uio {
   git clone git://dpdk.org/dpdk-kmods
   cd dpdk-kmods/linux/igb_uio
   make
-  sudo modprobe igb
+  sudo modprobe uio
   sudo insmod igb_uio.ko
   popd
 
@@ -245,7 +245,7 @@ PACKAGES=""
 PACKAGES+=" git-lfs python3 python3-pip python3-setuptools python3-wheel ninja-build" # DPDK
 PACKAGES+=" libnuma-dev libelf-dev libcap-dev libjansson-dev libipsec-mb-dev" # DPDK
 PACKAGES+=" autoconf libcsv-dev" # DPDK burst replay
-PACKAGES+=" pciutils build-essential cmake linux-headers-$(uname -r) libnuma-dev" # Moongen
+PACKAGES+=" pciutils build-essential cmake linux-headers-$(uname -r) libnuma-dev libtbb2" # Moongen
 PACKAGES+=" tmux texlive-font-utils pdf2svg poppler-utils pkg-config net-tools"
 
 $SUDO bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -yq $PACKAGES"
@@ -261,6 +261,8 @@ if [ -z ${DPDK_SETUP_ONLY+x} ]; then
   download_and_install_dpdk
   download_and_install_burst_replay
   download_and_install_moongen
+
+  ${DIR}/download_pcaps.sh
 fi
 
 echo -e "${COLOR_GREEN}All dependencies installed, let's configure DPDK.${COLOR_OFF}"
