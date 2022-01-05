@@ -154,6 +154,8 @@ then
   DEBIAN_FRONTEND=noninteractive apt install -yq sudo
 fi
 
+sudo apt update
+
 if ! command -v tmux &> /dev/null
 then
   echo "tmux not found"
