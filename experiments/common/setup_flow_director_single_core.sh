@@ -4,6 +4,8 @@ COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
 COLOR_OFF='\033[0m' # No Color
 
+sudo ethtool -K $1 ntuple on
+
 res=$(sudo ethtool -k $1 | grep "ntuple-filters: on")
 if [ -z "$res" ]; then
   echo -e "${COLOR_RED}Warning: The script sets the rules to perform the single core tests${COLOR_OFF}"
