@@ -55,6 +55,7 @@ For all the experiments presented in the paper please look at Section [*Experime
 After Morpheus is installed, you can start the Polycube daemon (i.e., *polycubed*) and create new services.
 
 ### Example of Morpheus optimizer (Router service)
+[![Morpheus Run Time Test](https://github.com/Morpheus-compiler/Morpheus/actions/workflows/morpheus-test.yml/badge.svg)](https://github.com/Morpheus-compiler/Morpheus/actions/workflows/morpheus-test.yml)
 
 We provide here an example of how Morpheus works. This setup does not requires testbed preparation, and it can be executed on a single machine.
 It uses two namespaces and attaches the Polycube eBPF *router* Network Function (NF) to the *Traffic Control* (TC) hook of the *veth* interfaces connected to the namespaces.
