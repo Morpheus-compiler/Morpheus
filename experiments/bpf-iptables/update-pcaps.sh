@@ -17,12 +17,12 @@ for FILE in ${PCAP_PATH}/*; do
         exit 1
     fi
 
-    if [[ ! $DUT_MAC_IF1 =~ ^([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}$ ]]; then
-        echo -e "${COLOR_RED}[ ERROR ] DUT_MAC_IF1: ${DUT_MAC_IF1} is not valid. ${COLOR_OFF}"
+    if [[ ! $PKTGEN_MAC_IF2 =~ ^([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}$ ]]; then
+        echo -e "${COLOR_RED}[ ERROR ] PKTGEN_MAC_IF2: ${PKTGEN_MAC_IF2} is not valid. ${COLOR_OFF}"
         exit 1
     fi
     
-    tcprewrite --enet-dmac=${DUT_MAC_IF1} --enet-smac=${PKTGEN_MAC_IF1} --infile=${FILE} --outfile=${FILE}.new
+    tcprewrite --enet-smac=${PKTGEN_MAC_IF1} --enet-dmac=${PKTGEN_MAC_IF2} --infile=${FILE} --outfile=${FILE}.new
     mv ${FILE}.new ${FILE}
     echo -e "${COLOR_GREEN}[ INFO ] File ${FILE} rewritten. ${COLOR_OFF}"
 done
