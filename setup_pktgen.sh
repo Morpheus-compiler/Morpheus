@@ -246,7 +246,7 @@ PACKAGES+=" git-lfs python3 python3-pip python3-setuptools python3-wheel ninja-b
 PACKAGES+=" libnuma-dev libelf-dev libcap-dev libjansson-dev libipsec-mb-dev" # DPDK
 PACKAGES+=" autoconf libcsv-dev" # DPDK burst replay
 PACKAGES+=" pciutils build-essential cmake linux-headers-$(uname -r) libnuma-dev libtbb2" # Moongen
-PACKAGES+=" tmux texlive-font-utils pdf2svg poppler-utils pkg-config net-tools"
+PACKAGES+=" tmux texlive-font-utils pdf2svg poppler-utils pkg-config net-tools bash tcpreplay"
 
 $SUDO bash -c "DEBIAN_FRONTEND=noninteractive apt-get install -yq $PACKAGES"
 
@@ -278,6 +278,9 @@ if [ -z ${QUIET+x} ]; then
   done
 
   echo -e "${COLOR_GREEN}Hugepages created.${COLOR_OFF}"
+
+  echo -e "${COLOR_GREEN}Configuring DPDK ports.${COLOR_OFF}"
+  echo -e "${COLOR_YELLOW}Make sure the ports do not have an IP address associated, otherwise the bind will fail.${COLOR_OFF}"
 
   while true; do
       read -r -p "Would you like to configure the ports (using VFIO driver)? (y/n) " yn

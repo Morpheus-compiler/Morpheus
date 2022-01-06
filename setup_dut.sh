@@ -168,7 +168,7 @@ then
   sudo DEBIAN_FRONTEND=noninteractive apt install -yq gpgv2
 fi
 
-sudo DEBIAN_FRONTEND=noninteractive apt install -yq net-tools
+sudo DEBIAN_FRONTEND=noninteractive apt install -yq net-tools bash
 
 [ -z ${SUDO+x} ] && SUDO='sudo'
 
