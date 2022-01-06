@@ -120,6 +120,8 @@ TEST_RESULT_DIR=${RESULTS_FOLDER_PATH}
 sudo rm -rf ${TEST_RESULT_DIR} &> /dev/null
 mkdir -p ${TEST_RESULT_DIR} &> /dev/null
 
+${DIR}/update-pcaps.sh
+
 for test in "${test_type[@]}"; do
   for rate in "${instr_rates[@]}"; do
     for i in $(eval echo "{1..$NUMBER_RUNS}"); do

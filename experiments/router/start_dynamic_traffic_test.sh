@@ -109,6 +109,8 @@ TEST_RESULT_DIR=${RESULTS_FOLDER_PATH}
 sudo rm -rf ${TEST_RESULT_DIR} &> /dev/null
 mkdir -p ${TEST_RESULT_DIR} &> /dev/null
 
+${DIR}/update-pcaps.sh
+
 echo -e "${COLOR_GREEN}[ INFO ] Running Baseline dynamic traffic test ${COLOR_OFF}"
 
 start_config_remote 
