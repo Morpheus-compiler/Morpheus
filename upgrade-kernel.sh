@@ -20,7 +20,7 @@ wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.12.19/amd64/linux-modules
 
 sudo dpkg -i ./*
 
-sudo apt --fix-broken install
+sudo apt --fix-broken install -y
 sudo update-grub
 echo -e "${COLOR_GREEN}New kernel installed. You can change the configuration from GRUB or simply reboot the machine with the new kernel${COLOR_OFF}"
 
