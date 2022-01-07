@@ -9,19 +9,31 @@ import geni.portal as portal
 # Import the ProtoGENI library.
 import geni.rspec.pg as pg
 
+# Create a portal context.
+pc = portal.Context()
+
 # Create a Request object to start building the RSpec.
-request = portal.context.makeRequestRSpec()
+request = pc.makeRequestRSpec()
  
 # Add a raw PC to the request.
 pktgen = request.RawPC("pktgen")
 dut = request.RawPC("dut")
 
+# Optional physical type for nodes.
+pc.defineParameter("phystype",  "Optional physical node type",
+                   portal.ParameterType.STRING, "c220g1",
+                   longDescription="Specify a physical node type (c220g1,xl170,etc). " +
+                   "Artifact tested on c220g1 (the default choice).")
+
+# Retrieve the values the user specifies during instantiation.
+params = pc.bindParameters()
+
 # Request that a specific image be installed on this node
 pktgen.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU20-64-STD";
 dut.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU20-64-STD";
 
-pktgen.hardware_type = "c220g1"
-dut.hardware_type = "c220g1"
+pktgen.hardware_type = params.phystype
+dut.hardware_type = params.phystype
 
 # Create a link between the two nodes
 link1 = request.Link(members = [pktgen, dut])
