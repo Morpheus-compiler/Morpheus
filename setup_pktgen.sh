@@ -87,6 +87,8 @@ function configure_dpdk_hugepages {
 
   $SUDO ./dpdk-hugepages.py -p 1G --setup 10G
 
+  $SUDO ./dpdk-hugepages.py -s
+
   popd
 }
 
@@ -106,6 +108,7 @@ function configure_dpdk_ports {
   echo -e "${COLOR_YELLOW}If it fails, make sure you have the intel_iommu=on enable on /etc/default/grub.${COLOR_OFF}"
   echo -e "${COLOR_YELLOW}Otherwise, you can manually bind the ports to the igb_uio driver.${COLOR_OFF}"
   $SUDO ./dpdk-devbind.py --bind=vfio-pci ${PCI_DEV_IDS}
+  $SUDO ./dpdk-devbind.py -s
   popd
   set -e
 }
@@ -134,6 +137,7 @@ function configure_dpdk_ports_igb_uio {
   read -r -p "PCI DEV IDS: " PCI_DEV_IDS
 
   $SUDO ./dpdk-devbind.py --bind=igb_uio ${PCI_DEV_IDS}
+  $SUDO ./dpdk-devbind.py -s
   
   popd
   set -e
@@ -264,6 +268,8 @@ if [ -z ${DPDK_SETUP_ONLY+x} ]; then
 
   ${DIR}/download_pcaps.sh
 fi
+
+$SUDO pip3 install -r ${DIR}/requirements.txt
 
 echo -e "${COLOR_GREEN}All dependencies installed, let's configure DPDK.${COLOR_OFF}"
 
