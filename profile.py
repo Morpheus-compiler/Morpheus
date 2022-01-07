@@ -2,7 +2,6 @@
 
 Instructions:
 Wait for the profile instance to start, then `ssh` on the two nodes of the topology and follow the instructions specified in the [GitHub page](https://github.com/Morpheus-compiler/Morpheus/tree/main/experiments#run-experiments-on-cloudlab).
-Make sure you reboot the two machines after the setup is completed to apply the configuration.
 """
 
 # Import the Portal object.
@@ -40,8 +39,8 @@ dut.hardware_type = params.phystype
 link1 = request.Link(members = [pktgen, dut])
 link2 = request.Link(members = [pktgen, dut])
 
-pktgen.addService(pg.Execute(shell="sh", command='/local/repository/update-grub-settings.sh'))
+pktgen.addService(pg.Execute(shell="sh", command='/local/repository/update-grub-settings.sh -q'))
 
-dut.addService(pg.Execute(shell="sh", command="/local/repository/upgrade-kernel.sh"))
+dut.addService(pg.Execute(shell="sh", command="/local/repository/upgrade-kernel.sh -q"))
 
 portal.context.printRequestRSpec()

@@ -1,4 +1,25 @@
 #!/bin/bash
+
+function show_help() {
+usage="$(basename "$0") [-q]
+Script to update kernel version
+
+-q  Non-interactive mode"
+echo "$usage"
+echo
+}
+
+while getopts :qh option; do
+ case "${option}" in
+ q)
+  QUIET=1
+  ;;
+ h|\?)
+  show_help
+  exit 0
+ esac
+done
+
 echo "Upgrade to kernel version 5.12.19"
 
 res=$(sudo dpkg --list | grep 5.12.19)
@@ -17,6 +38,20 @@ if [ -z "$res" ]; then
     sudo apt --fix-broken install -y
     sudo update-grub
     echo "New kernel installed. You can change the configuration from GRUB or simply reboot the machine with the new kernel"
+
+    if [ -z ${QUIET+x} ]; then
+        while true; do
+            read -r -p "Would you like to reboot the server to apply the new configuration? (y/n) " yn
+            case $yn in
+                [Yy]* ) sudo reboot;;
+                [Nn]* ) break;;
+                * ) echo -e "${COLOR_RED}Please answer yes or no.${COLOR_OFF}";;
+            esac
+        done
+    else
+        # Do not ask anything and reboot
+        sudo reboot
+    fi
 
     popd
 else

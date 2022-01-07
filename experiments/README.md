@@ -59,8 +59,7 @@ Running the experiment on Cloudlab is very easy. Just follow these steps:
 4. You can now choose a hardware node type. We already provide a default type (i.e., `c220g1`) but you can use another (we only tested it on `c220g1`).
 ***Note:*** Althought `c220g1` hardware nodes are *similar* to our paper's testbed, it is not the same; the absolute results may be different, but the **Morpheus** behavior should be evident.
 5. After the experiment is instantiated, you just need to wait for the setup to complete; then you can click on the `List View` tab to read the `ssh` command to log into the servers.
-6. After you login into the servers, make sure you reboot them before running our experiments, so that our custom configuration will be applied (e.g., the `DUT` will start with kernel `v5.12`).
-7. After the reboot, log into the `pktgen` machine, clone the Morpheus repository and run the `setup_pktgen.sh` script.
+7. Log into the `pktgen` machine, clone the Morpheus repository and run the `setup_pktgen.sh` script.
 8. In the meantime, log into the `dut` machine, clone the Morpheus repository and run the `setup_dut.sh` script.
 9. At this point, you are ready to start. Follow the instructions below to run our experiments. Enjoy *Morpheus*!
 
