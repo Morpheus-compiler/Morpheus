@@ -1,7 +1,8 @@
-"""This is a Cloudlab profile to run the test for the Morpheus ASPLOS'22 paper.
+"""This is a Cloudlab profile to run the test for the [Morpheus](https://github.com/Morpheus-compiler/Morpheus) ASPLOS'22 paper.
 
 Instructions:
-Wait for the profile instance to start, then `ssh` on the two nodes of the topology and follow the instructions specified in the [GitHub page](https://github.com/Morpheus-compiler/Morpheus).
+Wait for the profile instance to start, then `ssh` on the two nodes of the topology and follow the instructions specified in the [GitHub page](https://github.com/Morpheus-compiler/Morpheus/tree/main/experiments#run-experiments-on-cloudlab).
+Make sure you reboot the two machines after the setup is completed to apply the configuration.
 """
 
 # Import the Portal object.

@@ -54,16 +54,15 @@ To further simplify the reproducibility of our experiments, in case you do not h
 
 Running the experiment on Cloudlab is very easy. Just follow these steps:
 1. Login to [Cloudlab](https://www.cloudlab.us/login.php) using your username and password
-2. Go to `Experiments` > `Create Experiment Profile` on the left tab (or follow directly [this](https://www.cloudlab.us/manage_profile.php) link).
-3. Import the `Morpheus` profile by clicking on the `Git Repo` button, and paste the URL of this repository (i.e., https://github.com/Morpheus-compiler/Morpheus.git).
-4. Wait for Cloudlab to clone the repository and import the profile. Once done, you an directly `Instantiate` it by clicking on the corresponding button.
-5. Once you instantiate the experiment, you an setup a hardware node type. We already provide a default type (i.e., `c220g1`) but you can use another (we only tested it on `c220g1`).
+2. Go to `Experiments` > `Start Experiment` on the left tab (or follow directly [this](https://www.cloudlab.us/instantiate.php) link).
+3. Click on `Change Profile` button on the right side of the page, and select the `Morpheus-ASPLOS` profile); then click `Next`.
+4. You can now choose a hardware node type. We already provide a default type (i.e., `c220g1`) but you can use another (we only tested it on `c220g1`).
 ***Note:*** Althought `c220g1` hardware nodes are *similar* to our paper's testbed, it is not the same; the absolute results may be different, but the **Morpheus** behavior should be evident.
-6. After the experiment is instantiated, you just need to wait for the setup to complete; then you can click on the `List View` tab to read the `ssh` command to log into the servers.
-7. After you login into the servers, make sure you reboot them before running our experiments, so that our custom configuration will be applied (e.g., the `DUT` will start with kernel `v5.12`).
-8. After the reboot, log into the `pktgen` machine, clone the Morpheus repository and run the `setup_pktgen.sh` script.
-9. In the meantime, log into the `dut` machine, clone the Morpheus repository and run the `setup_dut.sh` script.
-10. At this point, you are ready to start. Follow the instructions below to run our experiments. Enjoy *Morpheus*!
+5. After the experiment is instantiated, you just need to wait for the setup to complete; then you can click on the `List View` tab to read the `ssh` command to log into the servers.
+6. After you login into the servers, make sure you reboot them before running our experiments, so that our custom configuration will be applied (e.g., the `DUT` will start with kernel `v5.12`).
+7. After the reboot, log into the `pktgen` machine, clone the Morpheus repository and run the `setup_pktgen.sh` script.
+8. In the meantime, log into the `dut` machine, clone the Morpheus repository and run the `setup_dut.sh` script.
+9. At this point, you are ready to start. Follow the instructions below to run our experiments. Enjoy *Morpheus*!
 
 ### Install dependencies
 Before starting, you need to prepare the testbed with all the required software.
