@@ -269,6 +269,7 @@ if [ -z ${DPDK_SETUP_ONLY+x} ]; then
   ${DIR}/download_pcaps.sh
 fi
 
+python3 -m pip install -U matplotlib
 $SUDO pip3 install -r ${DIR}/requirements.txt
 
 echo -e "${COLOR_GREEN}All dependencies installed, let's configure DPDK.${COLOR_OFF}"

@@ -2,7 +2,7 @@ argcomplete==1.12.3
 configparser==5.2.0
 docutils==0.16
 geni_lib==0.9.9.4
-matplotlib==3.5.1
+matplotlib
 numpy==1.21
 pandas==0.25.3
 pexpect==4.8.0
