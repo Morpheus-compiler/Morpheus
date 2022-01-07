@@ -43,6 +43,5 @@ link2 = request.Link(members = [pktgen, dut])
 pktgen.addService(pg.Execute(shell="sh", command='/local/repository/update-grub-settings.sh'))
 
 dut.addService(pg.Execute(shell="sh", command="/local/repository/upgrade-kernel.sh"))
-dut.addService(pg.Execute(shell="sh", command='/local/repository/update-grub-settings.sh'))
 
 portal.context.printRequestRSpec()
