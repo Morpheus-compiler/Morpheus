@@ -42,7 +42,7 @@ first_time1=system("sort -nk 1 ".working_directory."/../data/eval-dynamic-traffi
 first_time2=system("sort -nk 1 ".working_directory."/../data/eval-dynamic-traffic/results_dynamic_traffic_morpheus.csv | head -n 2 | awk 'BEGIN { FS = \",\" } ; NR==2{print $1}'")
 
 set parametric
-set trange [2:6]
+set trange [0:6]
 
 const5=5
 const10=10

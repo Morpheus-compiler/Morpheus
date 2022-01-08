@@ -53,7 +53,7 @@ unset ytics
 set grid x y2
 set title "Under load" font "Helvetica,24"
 set y2tics nomirror
-set y2range [0:400]
+set y2range [0:]
 
 set key top inside vertical left Left reverse font "Helvetica,22"
 set key samplen 2.2

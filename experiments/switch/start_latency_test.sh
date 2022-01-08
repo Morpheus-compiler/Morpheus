@@ -25,7 +25,8 @@ SWITCH_LATENCY_SCRIPT_NON_OPT_NEW="${DIR}"/config/latency/latency-switch-non-opt
 SWITCH_LATENCY_SCRIPT_NON_OPT_REVERSE_NEW="${DIR}"/config/latency/latency-switch-non-opt-reverse_new.lua
 
 MORPHEUS_CONFIG_FILE=/etc/morpheus/morpheus.yaml
-MORPHEUS_REMOTE_LATENCY_CONFIG_FILE="${DUT_REMOTE_MORPHEUS_FOLDER}"/config/latency/morpheus.yaml
+MORPHEUS_REMOTE_LATENCY_NON_OPT_CONFIG_FILE="${DUT_REMOTE_MORPHEUS_FOLDER}"/experiments/switch/config/latency/morpheus-non-opt.yaml
+MORPHEUS_REMOTE_LATENCY_OPT_CONFIG_FILE="${DUT_REMOTE_MORPHEUS_FOLDER}"/experiments/switch/config/latency/morpheus-opt.yaml
 
 RESULTS_FOLDER_PATH=${DIR}/results/latency
 TEST_DURATION=30
@@ -52,9 +53,10 @@ EOF
 
 function start_config_remote {
 local morpheus_flag=$1
+local config_file=$2
 ssh ${DUT_SERVER_USER}@${DUT_SERVER_IP} << EOF
   chmod +x ${DUT_TEST_SCRIPT_PATH}
-  ${DUT_TEST_SCRIPT_PATH} -l $morpheus_flag -c ${MORPHEUS_REMOTE_LATENCY_CONFIG_FILE}
+  ${DUT_TEST_SCRIPT_PATH} -l $morpheus_flag -c $config_file
   echo \$? > ${DUT_TEST_SCRIPT_RESULT}
 EOF
 }
@@ -64,7 +66,7 @@ function cleanup {
   rm ${SWITCH_LATENCY_SCRIPT_NEW} &> /dev/null
   rm ${SWITCH_LATENCY_SCRIPT_NON_OPT_NEW} &> /dev/null
   rm ${SWITCH_LATENCY_SCRIPT_NON_OPT_REVERSE_NEW} &> /dev/null
-  echo -e "${COLOR_YELLOW}Killing polycubed & perf${COLOR_OFF}"
+  echo -e "${COLOR_YELLOW}Killing polycubed${COLOR_OFF}"
   cleanup_environment
   trap - EXIT
   exit 0
@@ -154,7 +156,7 @@ for l in "${load[@]}"; do
   for i in $(eval echo "{1..$NUMBER_RUNS}"); do
     echo -e "${COLOR_GREEN}[ INFO ] Running baseline latency test: ${l}, run: ${i} ${COLOR_OFF}"
 
-    start_config_remote
+    start_config_remote "" ${MORPHEUS_REMOTE_LATENCY_OPT_CONFIG_FILE}
 
     config_result=$(ssh ${DUT_SERVER_USER}@${DUT_SERVER_IP} "cat ${DUT_TEST_SCRIPT_RESULT}")
 
@@ -187,7 +189,11 @@ for l in "${load[@]}"; do
     for i in $(eval echo "{1..$NUMBER_RUNS}"); do
       echo -e "${COLOR_GREEN}[ INFO ] Running Morpheus test ${l}: ${test}, run: ${i} ${COLOR_OFF}"
 
-      start_config_remote "-m"
+      if [ $test == "optimized" ]; then
+        start_config_remote "-m" ${MORPHEUS_REMOTE_LATENCY_OPT_CONFIG_FILE}
+      else 
+        start_config_remote "-m" ${MORPHEUS_REMOTE_LATENCY_NON_OPT_CONFIG_FILE}
+      fi
 
       config_result=$(ssh ${DUT_SERVER_USER}@${DUT_SERVER_IP} "cat ${DUT_TEST_SCRIPT_RESULT}")
 
