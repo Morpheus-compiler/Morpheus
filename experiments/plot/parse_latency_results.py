@@ -10,6 +10,7 @@ import os
 import sys
 import shutil
 from pathlib import Path
+import scipy.stats
 
 
 def parse_latency_data(service):
@@ -31,7 +32,12 @@ def parse_latency_data(service):
                     df = pd.read_csv(file_path, header=None)
                     df[0].sort_values(ascending=False)
 
-                    usec_latency = round(df[0][10:-10].quantile(0.99), 2)
+                    z_scores = scipy.stats.zscore(df)
+                    abs_z_scores = np.abs(z_scores)
+                    filtered_entries = (abs_z_scores < 3).all(axis=1)
+                    new_df = df[filtered_entries]
+
+                    usec_latency = round(new_df[0][10:-10].quantile(0.99), 2)
                     latency.append(usec_latency)
             data[loc][test] = np.mean(latency)/1e3
 
