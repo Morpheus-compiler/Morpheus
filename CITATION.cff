@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: Morpheus - Domain Specific Run Time Optimization for Software Data Planes
+abstract: Morpheus is a system working alongside static compilers that continuously optimizes the targeted networking code. It introduces a number of new techniques, from static code analysis to adaptive code instrumentation, together with a toolbox of domain specific optimizations used to manipulate the code on-the-fly depending on runtime traffic patterns and control plane configurations. The Morpheus core exploits the LLVM compiler toolchain (v10.0.1) for code manipulation and run-time code generation. It works at the intermediate representation (IR) level as it allows to reason about the running code using a relatively high-level language framework without compromising on code generation time.
+authors:
+  - family-names: Miano
+    given-names: Sebastiano
+    orcid: "https://orcid.org/0000-0002-1247-9640"
+version: 1.4.0
+date-released: "2022-01-26"
+license: Apache-2.0
+repository-code: "https://github.com/Morpheus-compiler/Morpheus"
