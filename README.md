@@ -4,6 +4,14 @@
 [![Morpheus Packet Generator Build](https://github.com/Morpheus-compiler/Morpheus/actions/workflows/morpheus-pktgen-build.yml/badge.svg)](https://github.com/Morpheus-compiler/Morpheus/actions/workflows/morpheus-pktgen-build.yml)
 [![Artifact DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5830832.svg)](https://doi.org/10.5281/zenodo.5830832)
 
+<div>
+<p align="left">
+<img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_available_v1_1.png" alt="Artifact-Evaluated" width="10%">
+<img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/artifacts_evaluated_functional_v1_1.png" alt="Artifact-Evaluated" width="10%">
+<img src="https://www.acm.org/binaries/content/gallery/acm/publications/artifact-review-v1_1-badges/results_reproduced_v1_1.png" alt="Artifact-Evaluated" width="10%">
+</p>
+</div>
+
 Morpheus is a system working alongside static compilers that continuously optimizes the targeted networking code. 
 It introduces a number of new techniques, from static code analysis to adaptive code instrumentation, together with a toolbox of domain specific optimizations used to manipulate the code on-the-fly depending on runtime traffic patterns and control plane configurations.
 
