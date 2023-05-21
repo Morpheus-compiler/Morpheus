@@ -2,7 +2,7 @@ argcomplete==1.12.3
 configparser==5.2.0
 docutils==0.16
 geni_lib==0.9.9.4
-pandas==0.25.3
+pandas>=0.25.3
 pexpect==4.8.0
 progressbar33==2.4
 pyelftools==0.27
