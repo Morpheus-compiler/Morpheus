@@ -31,7 +31,7 @@ used later in the code. In particular, signature-based call site analysis is use
 2. **Instrumentation**: In the second pass, Morpheus profiles the dynamics of the input traffic by generating ***heatmaps*** of the maps’ access patterns, so that the collected statistics can then be used to drive the subsequent optimization passes.
 3. **Optimization Passes**: The third step of the compilation pipeline is where all online code transformations are applied (e.g., *JIT compilation*, *Dead code elimination*, *Constant Propagation*, *Guard Elision*). 
 
-For more information, please read the Morpheus's [paper](https://sebymiano.github.io/publication/2022-morpheus/2022-morpheus.pdf) and the [extended abstract](https://sebymiano.github.io/publication/2022-morpheus/2022-morpheus_abstract.pdf) accepted to [ASPLOS '22](https://asplos-conference.org/2022/).
+For more information, please read the Morpheus's [paper](https://sebymiano.github.io/publication/2022-morpheus/2022-morpheus_final.pdf) and the [extended abstract](https://sebymiano.github.io/publication/2022-morpheus/2022-morpheus_abstract.pdf) accepted to [ASPLOS '22](https://asplos-conference.org/2022/).
 
 ## Compile and run Morpheus
 
