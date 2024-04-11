@@ -13,7 +13,7 @@
 </div>
 
 Morpheus is a system working alongside static compilers that continuously optimizes the targeted networking code. 
-It introduces a number of new techniques, from static code analysis to adaptive code instrumentation, together with a toolbox of domain specific optimizations used to manipulate the code on-the-fly depending on runtime traffic patterns and control plane configurations.
+It introduces a number of new techniques, from static code analysis to adaptive code instrumentation, together with a toolbox of domain specific optimizations used to manipulate the code on-the-fly depending on runtime traffic patterns and control plane configurations
 
 <p align="center">
 <img src="morpheus-logo.svg"  alt="Morpheus" width="80%">
